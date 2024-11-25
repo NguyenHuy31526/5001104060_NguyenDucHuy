@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang đăng ký thành viên</title>
+</head>
+<body>
+    <style>
+        #txtHoTen{
+            color: #99FF33;
+            background-color: #006699;
+            border: 1px solid #996633;
+            width: 300px;
+        }
+        #txtUserName{
+            color: #99FF33;
+            background-color: #006699;
+            border: 1px solid #996633;
+            width: 300px;
+        }
+        #txtPass{
+            color: #99FF33;
+            background-color: #006699;
+            border: 1px solid #996633;
+            width: 300px;
+        }
+        #txtRepass{
+            color: #99FF33;
+            background-color: #006699;
+            border: 1px solid #996633;
+            width: 300px;
+        }
+        #cboNgheNghiep{
+            color: #99FF33;
+            background-color: #006699;
+            border: 1px solid #996633;
+            width: 300px;
+        }
+        #fHinh{
+            color: #99FF33;
+            background-color: #006699;
+            border: 1px solid #996633;
+            width: 300px;
+        }
+        #txtSoThich{
+            color: #99FF33;
+            background-color: #006699;
+            border: 1px solid #996633;
+            width: 300px;
+        }
+         table{
+            border: 5px groove #993366;
+            background-color: #FFDDDD;
+            color: #003399;
+            
+        }
+
+    </style>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <form>
+
+       <table cellpadding="4" border="1" width="500" cellspacing="0" align="center" >
+        <caption>ĐĂNG KÝ THÀNH VIÊN CLB YÊU NHẠC</caption>
+        <tr>
+            <td>Họ tên</td>
+            <td><input type="text" id="txtHoTen" required></td>
+        </tr>
+        <tr>
+            <td>Tên đăng nhập</td>
+            <td><input type="text" id="txtUserName" required></td>
+        </tr>
+        <tr>
+            <td>Mật khẩu</td>
+            <td><input type="password" id="txtPass" required></td>
+        </tr>
+        <tr>
+            <td>Gõ lại mật khẩu</td>
+            <td><input type="password" id="txtRepass" required></td>
+        </tr>
+        <tr>
+            <td>Giới tính</td>
+            <td>
+                <input type="radio" name="rdGioiTinh" value="0" checked><label>Nam</label>
+                <input type="radio" name="rdGioiTinh" value="1"><label>Nữ</label>
+            </td>
+        </tr>
+        <tr>
+            <td>Ngoại ngữ</td>
+            <td>
+                <input type="checkbox" id="chkAnh"><label>Anh văn</label>
+                <input type="checkbox" id="chkPhap"><label>Pháp văn</label>
+                <input type="checkbox" id="chkHoa"><label>Hoa văn</label>
+
+            </td>
+        </tr>
+        <tr>
+            <td>Nghề nghiệp</td>
+            <td>
+                <select id="cboNgheNghiep" required>
+                    <option value="0"><label >Bạn làm nghề gì</label></option>
+                    <option value="1"><label >Học sinh - Sinh viên</label></option>
+                    <option value="2"><label >Giáo viên</label></option>
+                    <option value="3"><label >Nhân viên</label></option>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Hình</td>
+            <td><input type="file" id="fHinh" required></td>
+        </tr>
+        <tr>
+            <td>Sở thích</td>
+            <td><textarea id="txtSoThich"></textarea></td>
+        </tr>
+        <tr align="center">
+            <td colspan="2">
+                <input type="submit" id="btnDangKy" value="Đăng Ký">
+                <input type="reset" id="btnXoa" value="Làm lại">
+                <input type="hidden" name="NgayDangKy" value="03/23/2023">
+            </td>
+            
+        </tr>
+       </table>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #errorMessage {
+            color: red;
+            text-align: center;
+            margin: 10px 0;
+            display: none;
+        }
+
+        #successMessage {
+            color: green;
+            text-align: center;
+            margin: 10px 0;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Đăng nhập</h2>
+        <table>
+            <tr>
+                <td>Username</td>
+                <td><input type="text" id="username" placeholder="Username" required></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" id="password" placeholder="Password" required></td>
+            </tr>
+        </table>
+        <p id="errorMessage">Sai thông tin đăng nhập!</p>
+        <p id="successMessage">Chúc mừng, bạn đã đăng nhập thành công!</p>
+        <button id="loginButton" onclick="login()">Login</button>
+    </div>
+
+    <script>
+        const correctUsername = "admin";
+        const correctPassword = "admin";
+
+        function login() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (username === correctUsername && password === correctPassword) {
+                document.getElementById("errorMessage").style.display = "none";
+                document.getElementById("successMessage").style.display = "block";
+                document.getElementById("loginButton").textContent = "Logout";
+                document.getElementById("loginButton").onclick = logout;
+            } else {
+                document.getElementById("errorMessage").style.display = "block";
+                document.getElementById("successMessage").style.display = "none";
+            }
+        }
+
+        function logout() {
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+            document.getElementById("errorMessage").style.display = "none";
+            document.getElementById("successMessage").style.display = "none";
+            document.getElementById("loginButton").textContent = "Login";
+            document.getElementById("loginButton").onclick = login;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Menu</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f4f7fc;
+			margin: 0;
+			padding: 0;
+		}
+
+		/* Tạo kiểu cho các phần tử menu */
+		.menu_theloai {
+			font-size: 18px;
+			font-weight: bold;
+			cursor: pointer;
+			padding: 12px;
+			margin: 10px 0;
+			background-color: #0277bd; /* Màu xanh dương */
+			color: white;
+			border: 1px solid #01579b;
+			
+			transition: background-color 0.3s ease, transform 0.2s ease;
+		}
+		.menu_theloai:hover {
+			background-color: #01579b;
+			transform: scale(1.05); /* Tạo hiệu ứng phóng to khi hover */
+		}
+
+		.menu_nhom {
+			display: none;
+			padding-left: 20px;
+			background-color: #0288d1; /* Màu xanh dương nhạt */
+			
+		}
+
+		.menu_nhom a {
+			display: block;
+			padding: 10px;
+			margin: 5px 0;
+			text-decoration: none;
+			color: white;
+			
+			transition: background-color 0.3s ease, padding 0.2s ease;
+		}
+
+		.menu_nhom a:hover {
+			background-color: #ffcc00;
+			color: #000;
+			padding-left: 20px;
+		}
+
+		/* Định dạng phần body và làm cho menu gọn gàng hơn */
+		.container {
+			width: 80%;
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+
+		/* Thêm hiệu ứng cho việc ẩn/hiện menu */
+		.menu_theloai, .menu_nhom {
+			transition: all 0.3s ease;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div>
+			<div class="menu_theloai">Đời sống</div>
+			<div class="menu_nhom">
+				<a href="?idTL=15">Hoa hậu</a>
+				<a href="?idTL=16">Nghệ sĩ</a>
+				<a href="?idTL=17">Mỹ thuật</a>
+			</div>
+		</div>
+		<div>
+			<div class="menu_theloai">Giải trí</div>
+			<div class="menu_nhom">
+				<a href="?idTL=18">Âm nhạc</a>
+				<a href="?idTL=19">Thời trang</a>
+				<a href="?idTL=20">Điện ảnh</a>
+			</div>
+		</div>
+		<div>
+			<div class="menu_theloai">Thể thao</div>
+			<div class="menu_nhom">
+				<a href="?idTL=21">Bóng đá</a>
+				<a href="?idTL=22">Tennis</a>
+				<a href="?idTL=23">Các môn khác</a>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		$(document).ready(function () {
+			$(".menu_nhom").hide(); // Ẩn các nhóm menu ban đầu
+			$(".menu_theloai").click(function () {
+				$(this).next(".menu_nhom").slideToggle(); // Mở/đóng menu con khi nhấp
+			});
+		});
+	</script>
+</body>
+</html>
