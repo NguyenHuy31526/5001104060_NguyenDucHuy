@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giá Hoa Quả</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f9ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h2 {
+            color: #0077cc;
+            margin-bottom: 20px;
+        }
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #0077cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #005fa3;
+        }
+        p {
+            font-size: 18px;
+            margin-top: 15px;
+            color: #0077cc;
+        }
+        .error {
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Giá Hoa Quả</h2>
+        <input type="text" id="fruitName" placeholder="Nhập tên hoa quả">
+        <button onclick="checkPrice()">Xem giá ngay</button>
+        <p id="priceResult"></p>
+    </div>
+
+    <script>
+        function checkPrice() {
+            const fruitPrices = {
+                "Ổi": 20000,
+                "Dưa Hấu": 20000,
+                "Táo": 30000,
+                "Cam": 40000,
+                "Chôm Chôm": 40000,
+                "Măng Cụt": 50000
+            };
+
+            const fruitName = document.getElementById("fruitName").value.trim();
+            const price = fruitPrices[fruitName];
+            const resultElement = document.getElementById("priceResult");
+
+            if (price) {
+                resultElement.innerText = `${fruitName}: ${price} VNĐ/Kg`;
+                resultElement.className = "";
+            } else {
+                resultElement.innerText = `Không có thông tin về giá của "${fruitName}"`;
+                resultElement.className = "error";
+            }
+        }
+    </script>
+</body>
+</html>

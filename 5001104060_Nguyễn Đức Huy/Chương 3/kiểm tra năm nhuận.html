@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm Tra Năm Nhuận</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f5e9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            color: #2d94d8;
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 10px;
+        }
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #48cfd6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #4d89bd;
+        }
+        .result {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #2e767d;
+        }
+        .error {
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kiểm Tra Năm Nhuận</h1>
+        <label for="year">Nhập năm:</label>
+        <input type="number" id="year" placeholder="Nhập năm" required>
+        <button onclick="kiemTraNamNhuan()">Kiểm tra</button>
+        <p class="result" id="result"></p>
+    </div>
+
+    <script>
+        function kiemTraNamNhuan() {
+            const year = document.getElementById("year").value;
+            const resultElement = document.getElementById("result");
+
+            if (year === "") {
+                resultElement.innerText = "Vui lòng nhập năm!";
+                resultElement.className = "error";
+                return;
+            }
+
+            const nam = parseInt(year);
+
+            if ((nam % 4 === 0 && nam % 100 !== 0) || (nam % 400 === 0)) {
+                resultElement.innerText = `${nam} là năm nhuận.`;
+                resultElement.className = "result";
+            } else {
+                resultElement.innerText = `${nam} không phải là năm nhuận.`;
+                resultElement.className = "result";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Event Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+        h2 {
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+        #hoverDiv {
+            width: 200px;
+            height: 50px;
+            background-color: #87CEEB;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            margin: 20px auto;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        #hoverDiv:hover {
+            background-color: #4682B4;
+            transform: scale(1.1);
+        }
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        img:hover {
+            transform: scale(1.1);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 22px);
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Chuyển đổi nội dung và sự kiện với DOM</h2>
+        <div id="hoverDiv">Hover Me</div>
+        <img id="image" src="https://via.placeholder.com/150" alt="Image">
+        <br>
+        <button onclick="showCurrentTime()">Hiển thị thời gian hiện tại</button>
+        <p id="timeResult"></p>
+        <br>
+        <input type="text" id="textbox" placeholder="Nhập văn bản ở đây">
+        <button onclick="convertToUpperCase()">Chuyển sang chữ IN HOA</button>
+        <p id="textboxResult"></p>
+    </div>
+
+    <script>
+        document.getElementById("hoverDiv").addEventListener("mouseover", function() {
+            this.innerText = "Mouse Event";
+        });
+        document.getElementById("hoverDiv").addEventListener("mouseout", function() {
+            this.innerText = "Hover Me";
+        });
+
+        document.getElementById("image").addEventListener("mouseover", function() {
+            this.style.transform = "scale(1.1)";
+        });
+        document.getElementById("image").addEventListener("mouseout", function() {
+            this.style.transform = "scale(1)";
+        });
+
+        function showCurrentTime() {
+            const currentDate = new Date();
+            const timeString = currentDate.toLocaleString();
+            document.getElementById("timeResult").innerText = "Ngày và giờ hiện tại: " + timeString;
+        }
+
+        function convertToUpperCase() {
+            const textboxValue = document.getElementById("textbox").value;
+            document.getElementById("textboxResult").innerText = textboxValue.toUpperCase();
+        }
+    </script>
+</body>
+</html>
